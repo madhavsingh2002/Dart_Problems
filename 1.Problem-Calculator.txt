@@ -1,0 +1,30 @@
+Problem: Implement a Simple Calculator
+Create a simple calculator in Dart that can perform basic arithmetic operations: addition, subtraction, multiplication, and division. The calculator should take two numbers and an operator as input and return the result.
+
+Instructions:
+Create a function calculate that takes three parameters: two numbers and a string representing the operator.
+Based on the operator, perform the corresponding arithmetic operation.
+Ensure that division by zero is handled gracefully.
+Return the result of the operation
+void main() {
+  print(calculate(10, 5, '+')); // Output: 15
+  print(calculate(10, 5, '-')); // Output: 5
+  print(calculate(10, 5, '*')); // Output: 50
+  print(calculate(10, 5, '/')); // Output: 2
+  print(calculate(10, 0, '/')); // Output: Cannot divide by zero
+}
+
+dynamic calculate(num a, num b, String operator) {
+  switch (operator) {
+    case '+':
+      return a + b;
+    case '-':
+      return a - b;
+    case '*':
+      return a * b;
+    case '/':
+      return b != 0 ? a / b : 'Cannot divide by zero';
+    default:
+      return 'Unsupported operator';
+  }
+}

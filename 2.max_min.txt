@@ -1,0 +1,32 @@
+Problem: Find the Maximum and Minimum in a List
+Create a function in Dart that takes a list of numbers and returns both the maximum and minimum values from the list.
+
+Instructions:
+Create a function findMaxMin that takes a list of numbers as an input.
+Traverse the list to find the maximum and minimum values.
+Return a map with keys 'max' and 'min' containing the respective values.
+void main() {
+  List<num> numbers = [3, 5, 1, 9, 2];
+  Map<String, num> result = findMaxMin(numbers);
+  print(result); // Output: {max: 9, min: 1}
+}
+
+Map<String, num> findMaxMin(List<num> numbers) {
+  if (numbers.isEmpty) {
+    throw ArgumentError('The list cannot be empty');
+  }
+
+  num max = numbers[0];
+  num min = numbers[0];
+
+  for (num number in numbers) {
+    if (number > max) {
+      max = number;
+    }
+    if (number < min) {
+      min = number;
+    }
+  }
+
+  return {'max': max, 'min': min};
+}

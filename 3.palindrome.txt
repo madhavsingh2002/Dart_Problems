@@ -1,0 +1,28 @@
+Problem: Check for Palindrome
+Create a function in Dart that checks if a given string is a palindrome. A palindrome is a word, phrase, number, or other sequence of characters that reads the same forward and backward (ignoring spaces, punctuation, and case).
+
+Instructions:
+Create a function isPalindrome that takes a string as input.
+Normalize the string by converting it to lowercase and removing all non-alphanumeric characters.
+Check if the normalized string reads the same forward and backward.
+Return true if the string is a palindrome, and false otherwise.
+
+void main() {
+  print(isPalindrome("A man, a plan, a canal, Panama")); // Output: true
+  print(isPalindrome("race a car")); // Output: false
+  print(isPalindrome("")); // Output: true
+}
+
+bool isPalindrome(String s) {
+  // Normalize the string by converting to lowercase and removing non-alphanumeric characters
+  String normalized = s.toLowerCase().replaceAll(RegExp(r'[^a-z0-9]'), '');
+  
+  // Check if the normalized string reads the same forward and backward
+  int len = normalized.length;
+  for (int i = 0; i < len ~/ 2; i++) {
+    if (normalized[i] != normalized[len - 1 - i]) {
+      return false;
+    }
+  }
+  return true;
+}
