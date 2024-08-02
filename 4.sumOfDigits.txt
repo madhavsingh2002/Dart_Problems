@@ -1,0 +1,43 @@
+Problem: Sum of Digits
+
+Write a function in Dart that calculates the sum of the digits of a given integer.
+
+Instructions:
+1. Create a function `sumOfDigits` that takes an integer as input.
+2. If the number is negative, ignore the sign and sum the digits of the absolute value.
+3. Return the sum of the digits.
+
+Example:
+
+void main() {
+  print(sumOfDigits(1234)); // Output: 10
+  print(sumOfDigits(-5678)); // Output: 26
+  print(sumOfDigits(0)); // Output: 0
+}
+
+int sumOfDigits(int n) {
+  // Implement the function logic here
+}
+
+Requirements:
+1. The function should work for positive and negative integers.
+2. The function should handle edge cases, such as when the input is 0.
+
+SOLUTION:
+void main() {
+  print(sumOfDigits(1234)); // Output: 10
+  print(sumOfDigits(-5678)); // Output: 26
+  print(sumOfDigits(0)); // Output: 0
+}
+
+int sumOfDigits(int n) {
+  n = n.abs(); // Get the absolute value of the number
+  int sum = 0;
+
+  while (n > 0) {
+    sum += n % 10; // Add the last digit to the sum
+    n ~/= 10;     // Remove the last digit
+  }
+
+  return sum;
+}
